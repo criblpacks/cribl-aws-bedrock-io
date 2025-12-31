@@ -1,8 +1,25 @@
-aws_account_id:
+aws_region:
   type: string
   lib: custom
-  value: '"821601040136"'
-  description: AWS Account ID that owns the Bedrock model invocation logs written to S3
+  value: '"us-east-1"'
+  description: AWS region for your resources
+iam_role_arn:
+  type: string
+  lib: custom
+  value: '"YOUR_IAM_ROLE_ARN"'
+  description: IAM role ARN for Cribl to assume
+bedrock_cloudtrail_sqs_queue:
+  type: string
+  lib: custom
+  value: '"YOUR_CLOUDTRAIL_SQS_QUEUE"'
+  description: SQS queue URL for cloudtrail notifications
+  tags: ""
+bedrock_invocation_sqs_queue:
+  type: string
+  lib: custom
+  value: '"YOUR_INVOCATION_SQS_QUEUE"'
+  description: SQS queue URL for invocation notifications
+  tags: ""
 default_splunk_index:
   type: string
   lib: custom
@@ -19,25 +36,3 @@ default_bedrock_invocation_sourcetype:
   type: string
   lib: custom
   value: '"aws:bedrock:invocation"'
-aws_region:
-  type: string
-  lib: custom
-  value: '"us-east-1"'
-  description: AWS region for your resources
-iam_role_arn:
-  type: string
-  lib: custom
-  value: '"arn:aws:iam::821601040136:role/CriblBedrockLogsReader"'
-  description: IAM role ARN for Cribl to assume
-bedrock_cloudtrail_sqs_queue:
-  type: string
-  lib: custom
-  value: '"nth-bedrock-cloudtrail-notifications"'
-  description: SQS queue URL for cloudtrail notifications
-  tags: ""
-bedrock_invocation_sqs_queue:
-  type: string
-  lib: custom
-  value: '"nth-bedrock-invocation-notifications"'
-  description: SQS queue URL for invocation notifications
-  tags: ""

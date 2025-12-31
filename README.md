@@ -1,14 +1,16 @@
 # AWS Bedrock Invocation Logs Pack
 ----
 
+## About this Pack
+
+This pack is built as a complete SOURCE + DESTINATION solution (identified by the IO suffix). Data collection and delivery happen entirely within the pack's context, eliminating the need to connect it to globally defined Sources and Destinations. 
+
 This Pack enables comprehensive ingestion, processing, and routing of AWS Bedrock telemetry into Cribl Stream for normalization, enrichment, and delivery to downstream destinations such as Amazon S3 or Splunk.
 It captures three complementary data sources for full visibility into Bedrock usage and security:
 
 * `Invocation Logs`: Actual prompts, responses, token counts, latency.
 * `Management Events`: Captures admin actions such as creating agents, modifying guardrails, changing configs.
 * `Data Events`: Data plane operations like agent invocations, async jobs, flow executions.
-
-## About this Pack
 
 This Pack provides the following benefits:
 
@@ -21,6 +23,11 @@ This Pack provides the following benefits:
 * Supports routing to Amazon S3, Splunk, or other Cribl-supported destinations
 
 ## Deployment
+
+This pack is configured by default to use the Worker Group's *Default Destination*:
+* To use the *Default Destination*: No changes are required. The pack will route the data to the destination currently set as the Default on the Worker Group.
+* To use a different Destination: You must update the pack's routes to specify your desired Destination.
+* For immediate functionality without requiring Pack route filter expression modifications, every bundled Source within this pack adds a hidden field: `__packsource`. This field allows for seamless routing based on the Pack source.
 
 This section describes all required steps to deploy this Pack, including AWS-side setup and Cribl configuration.
 
@@ -219,6 +226,10 @@ Create a single IAM role that Cribl will assume for accessing both S3 buckets an
 ```
 
 * Copy the Role ARN after creation.
+
+## Configure Output Format
+
+Each data type can be configured to output data in either normalized JSON or Splunk (`_raw` + Splunk fields) format. Enable *only one* format for each pipeline.
 
 ## Configure your Destination/Update Pack Routes
 To ensure proper data routing, you must make a choice: retain the current setting to use the Default Destination defined by your Worker Group, or define a new Destination directly inside this pack and adjust the pack's route accordingly.
