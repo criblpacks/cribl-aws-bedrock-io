@@ -1,0 +1,10 @@
+0QtkbT:
+  sampleName: aws_bedrock_invocation.log
+  created: 1766525885806
+  size: 28326
+  numEvents: 14
+KUeImS:
+  sampleName: aws_bedrock_cloudtrail.log
+  created: 1767140386595
+  size: 8464
+  numEvents: 3

@@ -1,0 +1,83 @@
+inputs:
+  in_aws_bedrock_invocation:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    fileFilter: /.*/
+    awsAuthenticationMethod: auto
+    signatureVersion: v4
+    reuseConnections: true
+    rejectUnauthorized: true
+    staleChannelFlushMs: 10000
+    maxMessages: 1
+    visibilityTimeout: 600
+    numReceivers: 1
+    socketTimeout: 300
+    skipOnError: false
+    includeSqsMetadata: false
+    enableAssumeRole: true
+    durationSeconds: 3600
+    enableSQSAssumeRole: true
+    preprocess:
+      disabled: true
+    parquetChunkSizeMB: 5
+    parquetChunkDownloadTimeout: 600
+    checkpointing:
+      enabled: false
+    pollTimeout: 10
+    tagAfterProcessing: false
+    encoding: utf8
+    type: s3
+    queueName: '"nth-bedrock-invocation-notifications"'
+    assumeRoleArn: arn:aws:iam::821601040136:role/CriblBedrockLogsReader
+    region: us-east-1
+    metadata:
+      - name: __packsource
+        value: "'cribl-aws-bedrock-io.invocation'"
+    __template_region: aws_region
+    __template_assumeRoleArn: iam_role_arn
+    __template_queueName: bedrock_invocation_sqs_queue
+    breakerRulesets:
+      - AWS Ruleset
+  in_aws_bedrock_cloudtrail:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    fileFilter: /.*/
+    awsAuthenticationMethod: auto
+    signatureVersion: v4
+    reuseConnections: true
+    rejectUnauthorized: true
+    staleChannelFlushMs: 10000
+    maxMessages: 1
+    visibilityTimeout: 600
+    numReceivers: 1
+    socketTimeout: 300
+    skipOnError: false
+    includeSqsMetadata: false
+    enableAssumeRole: true
+    durationSeconds: 3600
+    enableSQSAssumeRole: true
+    preprocess:
+      disabled: true
+    parquetChunkSizeMB: 5
+    parquetChunkDownloadTimeout: 600
+    checkpointing:
+      enabled: false
+    pollTimeout: 10
+    tagAfterProcessing: false
+    encoding: utf8
+    type: s3
+    queueName: '"nth-bedrock-cloudtrail-notifications"'
+    assumeRoleArn: arn:aws:iam::821601040136:role/CriblBedrockLogsReader
+    region: us-east-1
+    metadata:
+      - name: __packsource
+        value: "'cribl-aws-bedrock-io.cloudtrail'"
+    __template_region: aws_region
+    __template_assumeRoleArn: iam_role_arn
+    __template_queueName: bedrock_cloudtrail_sqs_queue
+    breakerRulesets:
+      - AWS Ruleset

@@ -1,0 +1,43 @@
+id: default
+groups: {}
+comments:
+  - id: Ztx5OT
+    comment: Matches JSON events coming from the AWS Bedrock Collectors
+    index: 0
+  - id: EkqgfV
+    comment: Something went wrong. We shouldn't be here
+    index: 3
+routes:
+  - id: FsGAZJ
+    name: cribl_aws_bedrock_invocation
+    final: true
+    disabled: false
+    pipeline: cribl_aws_bedrock_invocation
+    description: Process AWS Bedrock Invocation Data
+    enableOutputExpression: false
+    outputExpression: null
+    filter: __packsource.includes('cribl-aws-bedrock-io.invocation')
+    clones: []
+    output: default
+  - id: HTiMSa
+    name: cribl_aws_bedrock_cloudtrail
+    final: true
+    disabled: false
+    pipeline: cribl_aws_bedrock_cloudtrail
+    description: Process AWS Bedrock Cloudtrail Data
+    enableOutputExpression: false
+    outputExpression: null
+    filter: __packsource.includes('cribl-aws-bedrock-io.cloudtrail')
+    clones: []
+    output: default
+  - id: default
+    name: default
+    final: true
+    disabled: false
+    pipeline: main
+    description: ""
+    enableOutputExpression: false
+    outputExpression: null
+    filter: "true"
+    clones: []
+    output: default
