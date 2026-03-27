@@ -18,7 +18,8 @@ routes:
     outputExpression: null
     filter: __packsource.includes('cribl-aws-bedrock-io.invocation')
     clones: []
-    output: default
+    targetContext: group
+    output: __group
   - id: HTiMSa
     name: cribl_aws_bedrock_cloudtrail
     final: true
@@ -29,7 +30,8 @@ routes:
     outputExpression: null
     filter: __packsource.includes('cribl-aws-bedrock-io.cloudtrail')
     clones: []
-    output: default
+    targetContext: group
+    output: __group
   - id: default
     name: default
     final: true

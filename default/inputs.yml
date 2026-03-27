@@ -29,7 +29,7 @@ inputs:
     tagAfterProcessing: false
     encoding: utf8
     type: s3
-    queueName: '"nth-bedrock-invocation-notifications"'
+    queueName: '"bedrock-invocation-notifications"'
     assumeRoleArn: arn:aws:iam::821601040136:role/CriblBedrockLogsReader
     region: us-east-1
     metadata:
@@ -70,7 +70,7 @@ inputs:
     tagAfterProcessing: false
     encoding: utf8
     type: s3
-    queueName: '"nth-bedrock-cloudtrail-notifications"'
+    queueName: '"bedrock-cloudtrail-notifications"'
     assumeRoleArn: arn:aws:iam::821601040136:role/CriblBedrockLogsReader
     region: us-east-1
     metadata:
