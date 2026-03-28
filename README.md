@@ -263,7 +263,7 @@ The Pack has the following variables:
 Upgrading certain Cribl Packs using the same Pack ID can have unintended consequences. See [Upgrading an Existing Pack](https://docs.cribl.io/stream/packs#upgrading) for details.
 
 ## Release Notes
-### Version 1.0.1
+### Version 2.0.0
 * Updated Route Destinations to "Send to Worker Group Routes". See above for details.
 
 ### Version 1.0.0
